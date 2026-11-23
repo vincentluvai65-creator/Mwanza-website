@@ -88,6 +88,9 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
       transition: background 0.2s;
     }
 
@@ -177,15 +180,32 @@
       margin-bottom: 1.25rem;
     }
 
-    .phone-display {
-      margin-top: 0.75rem;
-      font-size: 0.9rem;
-      color: #94a3b8;
+    .copy-box {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
-    .phone-display a {
+    .phone-pill {
+      background: #1e293b;
       color: #38bdf8;
-      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .copy-btn {
+      background: #334155;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
     }
 
     /* Footer */
@@ -226,7 +246,7 @@
           <h4>🏠 Hostels & Roommate Finder</h4>
           <p>Verified, budget-friendly rentals near campus with water, Wi-Fi, and security details.</p>
         </div>
-        <a href="whatsapp://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20am%20looking%20for%20a%20hostel%20or%20roommate." class="card-link">Find a Room &rarr;</a>
+        <a href="intent://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20am%20looking%20for%20a%20hostel%20or%20roommate.#Intent;scheme=whatsapp;package=com.whatsapp;end" class="card-link">Find a Room &rarr;</a>
       </div>
 
       <div class="card">
@@ -234,7 +254,7 @@
           <h4>🖨️ Printing, Typesetting & Binding</h4>
           <p>Fast assignment printing, project binding, lamination, and CV design at comrade rates.</p>
         </div>
-        <a href="whatsapp://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20need%20printing%20or%20typesetting%20services." class="card-link">Send Document &rarr;</a>
+        <a href="intent://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20need%20printing%20or%20typesetting%20services.#Intent;scheme=whatsapp;package=com.whatsapp;end" class="card-link">Send Document &rarr;</a>
       </div>
 
       <div class="card">
@@ -242,7 +262,7 @@
           <h4>📚 Revision Notes & Past Papers</h4>
           <p>Organized lecture notes, PDF handouts, and past exam papers across different courses.</p>
         </div>
-        <a href="whatsapp://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20would%20like%20to%20request%20revision%20notes%20or%20past%20papers." class="card-link">Request Notes &rarr;</a>
+        <a href="intent://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20would%20like%20to%20request%20revision%20notes%20or%20past%20papers.#Intent;scheme=whatsapp;package=com.whatsapp;end" class="card-link">Request Notes &rarr;</a>
       </div>
 
       <div class="card">
@@ -250,7 +270,7 @@
           <h4>🍔 Quick Bites & Hostel Delivery</h4>
           <p>Affordable snacks, smokies, chapo-beans, and drinks delivered straight to your hostel gate.</p>
         </div>
-        <a href="whatsapp://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20want%20to%20order%20food%20for%20hostel%20delivery." class="card-link">Order Now &rarr;</a>
+        <a href="intent://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20want%20to%20order%20food%20for%20hostel%20delivery.#Intent;scheme=whatsapp;package=com.whatsapp;end" class="card-link">Order Now &rarr;</a>
       </div>
 
       <div class="card">
@@ -258,7 +278,7 @@
           <h4>💻 Laptop & Phone Tech Support</h4>
           <p>Windows installation, software setup, screen/battery replacements, and troubleshooting.</p>
         </div>
-        <a href="whatsapp://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20need%20laptop%20or%20phone%20tech%20support." class="card-link">Book Repair &rarr;</a>
+        <a href="intent://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20need%20laptop%20or%20phone%20tech%20support.#Intent;scheme=whatsapp;package=com.whatsapp;end" class="card-link">Book Repair &rarr;</a>
       </div>
 
       <div class="card">
@@ -266,21 +286,33 @@
           <h4>🛒 Comrade Marketplace</h4>
           <p>Buy, sell, or swap second-hand mattresses, gas cylinders, electronics, and study tables.</p>
         </div>
-        <a href="whatsapp://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20want%20to%20check%20items%20on%20the%20Comrade%20Marketplace." class="card-link">View Deals &rarr;</a>
+        <a href="intent://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20want%20to%20check%20items%20on%20the%20Comrade%20Marketplace.#Intent;scheme=whatsapp;package=com.whatsapp;end" class="card-link">View Deals &rarr;</a>
       </div>
     </div>
 
     <section class="contact-box" id="contact">
       <h3>Need a Service Right Now?</h3>
       <p>Chat with us directly on WhatsApp for fast response and student discounts.</p>
-      <a href="whatsapp://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20would%20like%20to%20inquire%20about%20your%20campus%20services." class="btn">Chat on WhatsApp</a>
-      <p class="phone-display">Or Call / SMS Directly: <a href="tel:+254118389527">0118 389 527</a></p>
+      <a href="intent://send?phone=254118389527&text=Hello%20Mwanza%20Hub%2C%20I%20would%20like%20to%20inquire%20about%20your%20campus%20services.#Intent;scheme=whatsapp;package=com.whatsapp;end" class="btn">Chat on WhatsApp</a>
+      
+      <div class="copy-box">
+        <span class="phone-pill">0118 389 527</span>
+        <button class="copy-btn" onclick="copyNumber()">Copy Number</button>
+        <a href="tel:+254118389527" class="copy-btn" style="text-decoration:none;">Call</a>
+      </div>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2026 Mwanza Campus Hub &bull; Comrade Friendly</p>
   </footer>
+
+  <script>
+    function copyNumber() {
+      navigator.clipboard.writeText("0118389527");
+      alert("Number 0118389527 copied! Paste it in WhatsApp.");
+    }
+  </script>
 
 </body>
 </html>
