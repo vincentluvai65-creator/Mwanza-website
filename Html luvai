@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vincent Luvai | Official Website</title>
+</head>
+<body>
+
+  <h1>Welcome to Vincent Luvai's Website</h1>
+  <p>Hello! Welcome to my official page. I am building this website from scratch.</p>
+
+  <h2>About Me</h2>
+  <p>Write a short sentence here about what you do, your skills, or your business.</p>
+
+  <h2>My Services / Projects</h2>
+  <ul>
+    <li>Project or Service 1</li>
+    <li>Project or Service 2</li>
+    <li>Project or Service 3</li>
+  </ul>
+
+  <h2>Contact Me</h2>
+  <p>Email me directly at: <a href="mailto:vincentluvai65@gmail.com">vincentluvai65@gmail.com</a></p>
+
+</body>
+</html>
