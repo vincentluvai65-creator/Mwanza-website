@@ -45,52 +45,69 @@
             font-size: 2.2rem;
             font-weight: bold;
             color: var(--primary);
-            margin: 15px 0;
+            margin: 10px 0;
         }
         .features-list {
             text-align: left;
             max-width: 450px;
-            margin: 0 auto 25px;
+            margin: 0 auto 20px;
             padding-left: 20px;
         }
         .features-list li { margin-bottom: 8px; }
-        .pay-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            width: 100%;
-            max-width: 350px;
-            transition: background 0.3s;
-        }
-        .pay-btn:hover { background-color: #004d26; }
         
-        /* Manual M-Pesa Till / Code Unlock Fallback */
-        .manual-verify {
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            font-size: 0.9rem;
+        /* M-Pesa Payment Box */
+        .mpesa-box {
+            background: #e6f4ea;
+            border: 2px dashed var(--primary);
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 450px;
+            margin: 0 auto 20px;
         }
-        .manual-verify input {
-            padding: 10px;
-            width: 200px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            text-transform: uppercase;
+        .phone-display {
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--dark);
+            margin: 8px 0;
         }
-        .verify-btn {
-            padding: 10px 15px;
-            background: var(--dark);
+        .copy-btn {
+            background-color: var(--dark);
             color: white;
             border: none;
+            padding: 8px 16px;
+            font-size: 0.9rem;
             border-radius: 4px;
             cursor: pointer;
+            margin-bottom: 10px;
         }
+        .copy-btn:hover { opacity: 0.9; }
+
+        .verify-section {
+            max-width: 450px;
+            margin: 0 auto;
+        }
+        .verify-section input {
+            padding: 12px;
+            width: 60%;
+            max-width: 220px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .unlock-btn {
+            padding: 12px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .unlock-btn:hover { background-color: #004d26; }
 
         /* Protected Content (Hidden until paid) */
         #premium-guide {
@@ -144,22 +161,26 @@
         <div class="price-tag">KES 100</div>
         
         <ul class="features-list">
-            <li><strong>1. KCSE Results:</strong> Official KNEC portal & SMS checking steps.</li>
-            <li><strong>2. KUCCPS Portal:</strong> How to calculate cluster weights & select courses.</li>
-            <li><strong>3. SSP (Self-Sponsored):</strong> How to apply directly to universities if you miss placement.</li>
-            <li><strong>4. HELB & HEF Portal:</strong> First-time loan & scholarship application checklist.</li>
+            <li><strong>1. KCSE Results:</strong> Official KNEC portal checking steps.</li>
+            <li><strong>2. KUCCPS Portal:</strong> How to check cluster weights & select courses.</li>
+            <li><strong>3. SSP (Self-Sponsored):</strong> How to apply directly to universities.</li>
+            <li><strong>4. HELB & HEF Portal:</strong> First-time loan & scholarship checklist.</li>
         </ul>
 
-        <!-- PAYSTACK POPUP BUTTON -->
-        <button class="pay-btn" onclick="payWithPaystack()">Pay KES 100 via M-Pesa / Card</button>
+        <!-- DIRECT M-PESA PAYMENT INSTRUCTIONS -->
+        <div class="mpesa-box">
+            <div><strong>Step 1:</strong> Go to M-Pesa &rarr; <strong>Send Money</strong></div>
+            <div class="phone-display" id="mpesa-number">0118389527</div>
+            <button class="copy-btn" onclick="copyNumber()">Copy Phone Number</button>
+            <div style="font-size: 0.9rem;">Amount: <strong>KES 100</strong></div>
+        </div>
 
-        <!-- MANUAL M-PESA TILL FALLBACK -->
-        <div class="manual-verify">
-            <p><strong>Alternative:</strong> Send <strong>KES 100</strong> to M-Pesa Till/Phone: <strong>07XX XXX XXX</strong><br>
-            Enter the 10-character M-Pesa Transaction Code below to unlock:</p>
+        <!-- M-PESA CODE UNLOCK -->
+        <div class="verify-section">
+            <p style="margin-bottom: 8px;"><strong>Step 2:</strong> Enter the 10-character M-Pesa Transaction Code from your SMS to unlock:</p>
             <input type="text" id="mpesa-code" placeholder="e.g. SLK89X21MP" maxlength="10">
-            <button class="verify-btn" onclick="verifyManualCode()">Unlock Guide</button>
-            <p id="error-msg" style="color: red; display: none; margin-top: 8px;"></p>
+            <button class="unlock-btn" onclick="verifyManualCode()">Unlock Guide</button>
+            <p id="error-msg" style="color: red; display: none; margin-top: 8px; font-weight: bold;"></p>
         </div>
     </div>
 
@@ -173,7 +194,7 @@
         <div class="guide-card">
             <span class="badge">STEP 1</span>
             <h2>How to Check KCSE Results</h2>
-            <p>KNEC phases out old SMS shortcodes periodically and uses the official online portal:</p>
+            <p>KNEC uses the official online portal for provisional results:</p>
             <ol>
                 <li>Visit the official KNEC results portal: <strong>results.knec.ac.ke</strong></li>
                 <li>Enter your <strong>11-digit KCSE Index Number</strong> (without spaces or slashes).</li>
@@ -217,6 +238,3 @@
             <h2>How to Apply for HELB Loan & Government Scholarship (HEF)</h2>
             <p>Under the Student-Centred Funding Model, both scholarships and loans are applied for on one portal:</p>
             <ol>
-                <li><strong>Required Documents:</strong> Your National ID (or Maisha Card), valid email, Safaricom phone number registered in your name, KRA PIN, bank account or M-Pesa details, Parents' IDs & KRA PINs, and 2 Guarantors' IDs & phone numbers.</li>
-                <li>Visit <strong>portal.hef.co.ke</strong> (or download the <strong>HELB App</strong> from Google Play Store).</li>
-                <li>Register an account using your ID number and verify your email/phone.</li>
