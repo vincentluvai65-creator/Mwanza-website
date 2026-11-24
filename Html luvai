@@ -1,26 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Vincent Luvai | Official Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCSE Transition Hub | Results, KUCCPS, SSP & HELB Guide</title>
+    <style>
+        :root {
+            --primary: #006633;
+            --dark: #1a1a1a;
+            --light: #f4f7f6;
+            --accent: #d9232e;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), #004d26);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 { margin: 0 0 10px; font-size: 1.8rem; }
+        header p { margin: 0; opacity: 0.9; font-size: 1rem; }
+        .container {
+            max-width: 800px;
+            margin: 25px auto;
+            padding: 0 15px;
+        }
+        /* Paywall Box */
+        #paywall-box {
+            background: white;
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--accent);
+        }
+        .price-tag {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+        .features-list {
+            text-align: left;
+            max-width: 450px;
+            margin: 0 auto 25px;
+            padding-left: 20px;
+        }
+        .features-list li { margin-bottom: 8px; }
+        .pay-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 350px;
+            transition: background 0.3s;
+        }
+        .pay-btn:hover { background-color: #004d26; }
+        
+        /* Manual M-Pesa Till / Code Unlock Fallback */
+        .manual-verify {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        .manual-verify input {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .verify-btn {
+            padding: 10px 15px;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Protected Content (Hidden until paid) */
+        #premium-guide {
+            display: none;
+        }
+        .guide-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary);
+        }
+        .guide-card h2 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.35rem;
+        }
+        .badge {
+            display: inline-block;
+            background: #e6f4ea;
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
 
-  <h1>Welcome to Vincent Luvai's Website</h1>
-  <p>Hello! Welcome to my official page. I am building this website from scratch.</p>
+<header>
+    <h1>KCSE University & College Transition Guide</h1>
+    <p>Step-by-step instructions for Results, KUCCPS Placement, SSP & HELB Funding</p>
+</header>
 
-  <h2>About Me</h2>
-  <p>Write a short sentence here about what you do, your skills, or your business.</p>
+<div class="container">
 
-  <h2>My Services / Projects</h2>
-  <ul>
-    <li>Project or Service 1</li>
-    <li>Project or Service 2</li>
-    <li>Project or Service 3</li>
-  </ul>
+    <!-- PAYMENT PROMPT SECTION -->
+    <div id="paywall-box">
+        <span class="badge">INSTANT ACCESS</span>
+        <h2>Unlock the Complete Student Application Guide</h2>
+        <p>Get clear, accurate instructions to avoid costly application mistakes.</p>
+        <div class="price-tag">KES 100</div>
+        
+        <ul class="features-list">
+            <li><strong>1. KCSE Results:</strong> Official KNEC portal & SMS checking steps.</li>
+            <li><strong>2. KUCCPS Portal:</strong> How to calculate cluster weights & select courses.</li>
+            <li><strong>3. SSP (Self-Sponsored):</strong> How to apply directly to universities if you miss placement.</li>
+            <li><strong>4. HELB & HEF Portal:</strong> First-time loan & scholarship application checklist.</li>
+        </ul>
 
-  <h2>Contact Me</h2>
-  <p>Email me directly at: <a href="mailto:vincentluvai65@gmail.com">vincentluvai65@gmail.com</a></p>
+        <!-- PAYSTACK POPUP BUTTON -->
+        <button class="pay-btn" onclick="payWithPaystack()">Pay KES 100 via M-Pesa / Card</button>
 
-</body>
-</html>
+        <!-- MANUAL M-PESA TILL FALLBACK -->
+        <div class="manual-verify">
+            <p><strong>Alternative:</strong> Send <strong>KES 100</strong> to M-Pesa Till/Phone: <strong>07XX XXX XXX</strong><br>
+            Enter the 10-character M-Pesa Transaction Code below to unlock:</p>
+            <input type="text" id="mpesa-code" placeholder="e.g. SLK89X21MP" maxlength="10">
+            <button class="verify-btn" onclick="verifyManualCode()">Unlock Guide</button>
+            <p id="error-msg" style="color: red; display: none; margin-top: 8px;"></p>
+        </div>
+    </div>
+
+    <!-- PROTECTED GUIDE SECTION -->
+    <div id="premium-guide">
+        <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 6px; margin-bottom: 20px; text-align: center;">
+            <strong>Payment Confirmed!</strong> Bookmark this page or take screenshots for reference.
+        </div>
+
+        <!-- SECTION 1: KCSE RESULTS -->
+        <div class="guide-card">
+            <span class="badge">STEP 1</span>
+            <h2>How to Check KCSE Results</h2>
+            <p>KNEC phases out old SMS shortcodes periodically and uses the official online portal:</p>
+            <ol>
+                <li>Visit the official KNEC results portal: <strong>results.knec.ac.ke</strong></li>
+                <li>Enter your <strong>11-digit KCSE Index Number</strong> (without spaces or slashes).</li>
+                <li>Enter your <strong>registered name</strong> (at least one name as it appears on your registration slip).</li>
+                <li>Click <strong>Submit / View Results</strong> to display your provisional slip.</li>
+                <li><em>Tip:</em> Always collect your official printed result slip from your former high school for university registration.</li>
+            </ol>
+        </div>
+
+        <!-- SECTION 2: KUCCPS APPLICATION -->
+        <div class="guide-card">
+            <span class="badge">STEP 2</span>
+            <h2>How to Apply for Schools via KUCCPS</h2>
+            <p>Once KUCCPS opens the student portal (usually between March and April):</p>
+            <ol>
+                <li>Go to <strong>students.kuccps.net</strong> and click <strong>Login</strong>.</li>
+                <li>Use your <strong>KCSE Index Number</strong>, <strong>KCSE Year</strong>, and your <strong>KCPE Index Number</strong> (or Birth Certificate Number) as the initial password.</li>
+                <li>Check your <strong>Cluster Weights</strong> under the "Programmes" tab. Compare your points against the previous year's cut-off points.</li>
+                <li>Select <strong>4 Degree Choices</strong> (1a, 1b, 1c, 2, 3, 4) or Diploma/Certificate courses depending on your mean grade (C+ and above for Degree; C- and above for Diploma).</li>
+                <li>Pay the <strong>KES 1,500</strong> KUCCPS application fee via the M-Pesa eCitizen prompt generated on the portal and submit before the deadline.</li>
+            </ol>
+        </div>
+
+        <!-- SECTION 3: SSP APPLICATION -->
+        <div class="guide-card">
+            <span class="badge">STEP 3</span>
+            <h2>How to Apply via SSP (Self-Sponsored Programme)</h2>
+            <p>If you miss your preferred course through KUCCPS or want to join immediately as a parallel/self-sponsored student:</p>
+            <ol>
+                <li>Visit the specific university's official admissions portal (e.g., <em>application.uonbi.ac.ke</em>, <em>ku.ac.ke</em>, <em>jkuat.ac.ke</em>, <em>mku.ac.ke</em>).</li>
+                <li>Create an applicant account and select <strong>Self-Sponsored / Module II / Privately Sponsored</strong> intake (usually May or September).</li>
+                <li>Upload scanned PDF copies of your <strong>KCSE Result Slip, KCPE Certificate, National ID/Birth Certificate, and Passport Photo</strong>.</li>
+                <li>Pay the university's non-refundable application fee (typically KES 1,000 – KES 2,000) via their official bank/M-Pesa paybill.</li>
+                <li>Download your admission letter once approved. Note that SSP students can still apply for HELB loans.</li>
+            </ol>
+        </div>
+
+        <!-- SECTION 4: HELB & HEF APPLICATION -->
+        <div class="guide-card">
+            <span class="badge">STEP 4</span>
+            <h2>How to Apply for HELB Loan & Government Scholarship (HEF)</h2>
+            <p>Under the Student-Centred Funding Model, both scholarships and loans are applied for on one portal:</p>
+            <ol>
+                <li><strong>Required Documents:</strong> Your National ID (or Maisha Card), valid email, Safaricom phone number registered in your name, KRA PIN, bank account or M-Pesa details, Parents' IDs & KRA PINs, and 2 Guarantors' IDs & phone numbers.</li>
+                <li>Visit <strong>portal.hef.co.ke</strong> (or download the <strong>HELB App</strong> from Google Play Store).</li>
+                <li>Register an account using your ID number and verify your email/phone.</li>
