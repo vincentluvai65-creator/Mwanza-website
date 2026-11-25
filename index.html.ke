@@ -1,240 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KCSE Transition Hub | Results, KUCCPS, SSP & HELB Guide</title>
-    <style>
-        :root {
-            --primary: #006633;
-            --dark: #1a1a1a;
-            --light: #f4f7f6;
-            --accent: #d9232e;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        header {
-            background: linear-gradient(135deg, var(--primary), #004d26);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
-        header h1 { margin: 0 0 10px; font-size: 1.8rem; }
-        header p { margin: 0; opacity: 0.9; font-size: 1rem; }
-        .container {
-            max-width: 800px;
-            margin: 25px auto;
-            padding: 0 15px;
-        }
-        /* Paywall Box */
-        #paywall-box {
-            background: white;
-            border-radius: 10px;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-top: 5px solid var(--accent);
-        }
-        .price-tag {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin: 10px 0;
-        }
-        .features-list {
-            text-align: left;
-            max-width: 450px;
-            margin: 0 auto 20px;
-            padding-left: 20px;
-        }
-        .features-list li { margin-bottom: 8px; }
-        
-        /* M-Pesa Payment Box */
-        .mpesa-box {
-            background: #e6f4ea;
-            border: 2px dashed var(--primary);
-            border-radius: 8px;
-            padding: 20px;
-            max-width: 450px;
-            margin: 0 auto 20px;
-        }
-        .phone-display {
-            font-size: 1.6rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: var(--dark);
-            margin: 8px 0;
-        }
-        .copy-btn {
-            background-color: var(--dark);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            font-size: 0.9rem;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-bottom: 10px;
-        }
-        .copy-btn:hover { opacity: 0.9; }
-
-        .verify-section {
-            max-width: 450px;
-            margin: 0 auto;
-        }
-        .verify-section input {
-            padding: 12px;
-            width: 60%;
-            max-width: 220px;
-            border: 2px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-            text-transform: uppercase;
-            text-align: center;
-        }
-        .unlock-btn {
-            padding: 12px 20px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .unlock-btn:hover { background-color: #004d26; }
-
-        /* Protected Content (Hidden until paid) */
-        #premium-guide {
-            display: none;
-        }
-        .guide-card {
-            background: white;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--primary);
-        }
-        .guide-card h2 {
-            margin-top: 0;
-            color: var(--primary);
-            font-size: 1.35rem;
-        }
-        .badge {
-            display: inline-block;
-            background: #e6f4ea;
-            color: var(--primary);
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.85rem;
-            color: #666;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyMultiplier - Crash Game Demo</title>
+  <style>
+    * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body {
+      background-color: #0e1015;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+    .header {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1b1e28;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .balance { font-size: 1.2rem; font-weight: bold; color: #28a745; }
+    .game-screen {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      background: radial-gradient(circle at bottom left, #2c1623, #14161f);
+      border: 2px solid #2a2e3d;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .multiplier {
+      font-size: 4rem;
+      font-weight: 800;
+      z-index: 2;
+    }
+    .crashed { color: #e53935; }
+    .status-text {
+      font-size: 1.1rem;
+      color: #a0a5b5;
+      margin-top: 10px;
+      z-index: 2;
+    }
+    .plane {
+      font-size: 2.5rem;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      transition: transform 0.1s linear;
+    }
+    .controls {
+      width: 100%;
+      max-width: 600px;
+      background: #1b1e28;
+      padding: 20px;
+      border-radius: 12px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    input[type="number"] {
+      width: 140px;
+      padding: 12px;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      border: 1px solid #3a3f52;
+      background: #0e1015;
+      color: white;
+    }
+    button {
+      flex: 1;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      transition: background 0.2s;
+    }
+    .btn-bet { background-color: #28a745; }
+    .btn-bet:hover { background-color: #218838; }
+    .btn-cashout { background-color: #ff9800; color: #000; }
+    .btn-cashout:hover { background-color: #e68900; }
+    .btn-disabled { background-color: #44495a; cursor: not-allowed; color: #888; }
+    .history {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+      overflow-x: auto;
+    }
+    .badge {
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      background: #232734;
+    }
+    .badge.high { color: #9c27b0; }
+    .badge.mid { color: #2196f3; }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>KCSE University & College Transition Guide</h1>
-    <p>Step-by-step instructions for Results, KUCCPS Placement, SSP & HELB Funding</p>
-</header>
+  <div class="header">
+    <div><strong>SkyMultiplier</strong> (Demo)</div>
+    <div class="balance">KES <span id="balanceDisplay">1000.00</span></div>
+  </div>
 
-<div class="container">
+  <div class="history" id="historyBar"></div>
 
-    <!-- PAYMENT PROMPT SECTION -->
-    <div id="paywall-box">
-        <span class="badge">INSTANT ACCESS</span>
-        <h2>Unlock the Complete Student Application Guide</h2>
-        <p>Get clear, accurate instructions to avoid costly application mistakes.</p>
-        <div class="price-tag">KES 100</div>
-        
-        <ul class="features-list">
-            <li><strong>1. KCSE Results:</strong> Official KNEC portal checking steps.</li>
-            <li><strong>2. KUCCPS Portal:</strong> How to check cluster weights & select courses.</li>
-            <li><strong>3. SSP (Self-Sponsored):</strong> How to apply directly to universities.</li>
-            <li><strong>4. HELB & HEF Portal:</strong> First-time loan & scholarship checklist.</li>
-        </ul>
+  <div class="game-screen">
+    <div class="plane" id="planeIcon">✈️</div>
+    <div class="multiplier" id="multiplierDisplay">1.00x</div>
+    <div class="status-text" id="statusText">Place your bet for the next round</div>
+  </div>
 
-        <!-- DIRECT M-PESA PAYMENT INSTRUCTIONS -->
-        <div class="mpesa-box">
-            <div><strong>Step 1:</strong> Go to M-Pesa &rarr; <strong>Send Money</strong></div>
-            <div class="phone-display" id="mpesa-number">0118389527</div>
-            <button class="copy-btn" onclick="copyNumber()">Copy Phone Number</button>
-            <div style="font-size: 0.9rem;">Amount: <strong>KES 100</strong></div>
-        </div>
-
-        <!-- M-PESA CODE UNLOCK -->
-        <div class="verify-section">
-            <p style="margin-bottom: 8px;"><strong>Step 2:</strong> Enter the 10-character M-Pesa Transaction Code from your SMS to unlock:</p>
-            <input type="text" id="mpesa-code" placeholder="e.g. SLK89X21MP" maxlength="10">
-            <button class="unlock-btn" onclick="verifyManualCode()">Unlock Guide</button>
-            <p id="error-msg" style="color: red; display: none; margin-top: 8px; font-weight: bold;"></p>
-        </div>
+  <div class="controls">
+    <div>
+      <label for="betInput" style="display:block; font-size:0.8rem; color:#aaa; margin-bottom:4px;">Bet Amount (KES)</label>
+      <input type="number" id="betInput" value="50" min="10" max="10000">
     </div>
+    <button id="actionBtn" class="btn-bet">PLACE BET</button>
+  </div>
 
-    <!-- PROTECTED GUIDE SECTION -->
-    <div id="premium-guide">
-        <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 6px; margin-bottom: 20px; text-align: center;">
-            <strong>Payment Confirmed!</strong> Bookmark this page or take screenshots for reference.
-        </div>
+  <script>
+    let balance = 1000.00;
+    let currentBet = 0;
+    let multiplier = 1.00;
+    let crashPoint = 1.00;
+    let gameState = 'WAITING'; // WAITING, FLYING, CRASHED
+    let gameInterval;
+    let hasCashedOut = false;
 
-        <!-- SECTION 1: KCSE RESULTS -->
-        <div class="guide-card">
-            <span class="badge">STEP 1</span>
-            <h2>How to Check KCSE Results</h2>
-            <p>KNEC uses the official online portal for provisional results:</p>
-            <ol>
-                <li>Visit the official KNEC results portal: <strong>results.knec.ac.ke</strong></li>
-                <li>Enter your <strong>11-digit KCSE Index Number</strong> (without spaces or slashes).</li>
-                <li>Enter your <strong>registered name</strong> (at least one name as it appears on your registration slip).</li>
-                <li>Click <strong>Submit / View Results</strong> to display your provisional slip.</li>
-                <li><em>Tip:</em> Always collect your official printed result slip from your former high school for university registration.</li>
-            </ol>
-        </div>
+    const balanceDisplay = document.getElementById('balanceDisplay');
+    const multiplierDisplay = document.getElementById('multiplierDisplay');
+    const statusText = document.getElementById('statusText');
+    const actionBtn = document.getElementById('actionBtn');
+    const betInput = document.getElementById('betInput');
+    const planeIcon = document.getElementById('planeIcon');
+    const historyBar = document.getElementById('historyBar');
 
-        <!-- SECTION 2: KUCCPS APPLICATION -->
-        <div class="guide-card">
-            <span class="badge">STEP 2</span>
-            <h2>How to Apply for Schools via KUCCPS</h2>
-            <p>Once KUCCPS opens the student portal (usually between March and April):</p>
-            <ol>
-                <li>Go to <strong>students.kuccps.net</strong> and click <strong>Login</strong>.</li>
-                <li>Use your <strong>KCSE Index Number</strong>, <strong>KCSE Year</strong>, and your <strong>KCPE Index Number</strong> (or Birth Certificate Number) as the initial password.</li>
-                <li>Check your <strong>Cluster Weights</strong> under the "Programmes" tab. Compare your points against the previous year's cut-off points.</li>
-                <li>Select <strong>4 Degree Choices</strong> (1a, 1b, 1c, 2, 3, 4) or Diploma/Certificate courses depending on your mean grade (C+ and above for Degree; C- and above for Diploma).</li>
-                <li>Pay the <strong>KES 1,500</strong> KUCCPS application fee via the M-Pesa eCitizen prompt generated on the portal and submit before the deadline.</li>
-            </ol>
-        </div>
+    function updateBalance() {
+      balanceDisplay.textContent = balance.toFixed(2);
+    }
 
-        <!-- SECTION 3: SSP APPLICATION -->
-        <div class="guide-card">
-            <span class="badge">STEP 3</span>
-            <h2>How to Apply via SSP (Self-Sponsored Programme)</h2>
-            <p>If you miss your preferred course through KUCCPS or want to join immediately as a parallel/self-sponsored student:</p>
-            <ol>
-                <li>Visit the specific university's official admissions portal (e.g., <em>application.uonbi.ac.ke</em>, <em>ku.ac.ke</em>, <em>jkuat.ac.ke</em>, <em>mku.ac.ke</em>).</li>
-                <li>Create an applicant account and select <strong>Self-Sponsored / Module II / Privately Sponsored</strong> intake (usually May or September).</li>
-                <li>Upload scanned PDF copies of your <strong>KCSE Result Slip, KCPE Certificate, National ID/Birth Certificate, and Passport Photo</strong>.</li>
-                <li>Pay the university's non-refundable application fee (typically KES 1,000 – KES 2,000) via their official bank/M-Pesa paybill.</li>
-                <li>Download your admission letter once approved. Note that SSP students can still apply for HELB loans.</li>
-            </ol>
-        </div>
+    // Generates a crash point with a built-in house edge
+    function generateCrashPoint() {
+      const r = Math.random();
+      if (r < 0.05) return 1.00; // 5% instant crash
+      const crash = 0.96 / (1 - r); // 4% house edge
+      return Math.max(1.01, Math.min(crash, 100)).toFixed(2);
+    }
 
-        <!-- SECTION 4: HELB & HEF APPLICATION -->
-        <div class="guide-card">
-            <span class="badge">STEP 4</span>
-            <h2>How to Apply for HELB Loan & Government Scholarship (HEF)</h2>
-            <p>Under the Student-Centred Funding Model, both scholarships and loans are applied for on one portal:</p>
-            <ol>
+    function addHistory(val) {
+      const badge = document.createElement('span');
+      badge.className = 'badge ' + (val >= 10 ? 'high' : val >= 2 ? 'mid' : '');
+      badge.textContent = val + 'x';
+      historyBar.prepend(badge);
+      if (historyBar.children.length > 8) {
+        historyBar.removeChild(historyBar.lastChild);
+      }
+    }
+
+    function startWaitingPhase() {
+      gameState = 'WAITING';
+      multiplier = 1.00;
+      hasCashedOut = false;
+      multiplierDisplay.textContent = '1.00x';
+      multiplierDisplay.classList.remove('crashed');
+      planeIcon.style.transform = 'translate(0px, 0px)';
+
+      if (currentBet > 0) {
+        statusText.textContent = `Bet of KES ${currentBet} locked! Taking off soon...`;
+        actionBtn.textContent = 'WAITING...';
+        actionBtn.className = 'btn-disabled';
+      } else {
+        statusText.textContent = 'Place your bet before takeoff (5s)';
+        actionBtn.textContent = 'PLACE BET';
+        actionBtn.className = 'btn-bet';
+      }
+
+      setTimeout(startFlight, 5000);
+    }
+
+    function startFlight() {
+      gameState = 'FLYING';
+      crashPoint = parseFloat(generateCrashPoint());
+      statusText.textContent = 'Flying...';
+
+      if (currentBet > 0) {
+        actionBtn.textContent = `CASH OUT (KES ${(currentBet * multiplier).toFixed(2)})`;
+        actionBtn.className = 'btn-cashout';
+      } else {
+        actionBtn.textContent = 'ROUND IN PROGRESS';
+        actionBtn.className = 'btn-disabled';
+      }
+
+      let xPos = 0;
+      let yPos = 0;
+
+      gameInterval = setInterval(() => {
+        multiplier += 0.01 * Math.pow(multiplier, 0.5);
+        multiplierDisplay.textContent = multiplier.toFixed(2) + 'x';
+
+        // Move plane visually
+        xPos = Math.min(xPos + 2, 480);
+        yPos = Math.min(yPos + 1, 200);
+        planeIcon.style.transform = `translate(${xPos}px, -${yPos}px)`;
+
+        if (currentBet > 0 && !hasCashedOut) {
+          actionBtn.textContent = `CASH OUT (KES ${(currentBet * multiplier).toFixed(2)})`;
+        }
+
+        if (multiplier >= crashPoint) {
+          endFlight();
+        }
+      }, 60);
+    }
+
+    function endFlight() {
+      clearInterval(gameInterval);
+      gameState = 'CRASHED';
+      multiplierDisplay.textContent = crashPoint.toFixed(2) + 'x';
+      multiplierDisplay.classList.add('crashed');
+      statusText.textContent = 'FLEW AWAY!';
+      addHistory(crashPoint.toFixed(2));
+
+      currentBet = 0;
+      actionBtn.textContent = 'ROUND ENDED';
+      actionBtn.className = 'btn-disabled';
+
+      setTimeout(startWaitingPhase, 3000);
+    }
+
+    actionBtn.addEventListener('click', () => {
+      if (gameState === 'WAITING' && currentBet === 0) {
+        const betAmount = parseFloat(betInput.value);
+        if (isNaN(betAmount) || betAmount <= 0 || betAmount > balance) {
+          alert('Invalid bet amount or insufficient balance!');
+          return;
+        }
+        balance -= betAmount;
+        currentBet = betAmount;
+        updateBalance();
+        statusText.textContent = `Bet of KES ${currentBet} placed!`;
+        actionBtn.textContent = 'BET PLACED';
+        actionBtn.className = 'btn-disabled';
+      } 
+      else if (gameState === 'FLYING' && currentBet > 0 && !hasCashedOut) {
+        hasCashedOut = true;
+        const winnings = currentBet * multiplier;
+        balance += winnings;
+        updateBalance();
+        statusText.textContent = `Cashed out at ${multiplier.toFixed(2)}x! Won KES ${winnings.toFixed(2)}`;
+        actionBtn.textContent = 'CASHED OUT';
+        actionBtn.className = 'btn-disabled';
+        currentBet = 0;
+      }
+    });
+
+    // Initialize game loop
+    startWaitingPhase();
+  </script>
+</body>
+</html>
